@@ -21,7 +21,7 @@
             var year = today.getFullYear();
             var month = today.getMonth()+1;
             var date = today.getDate();
-            var display_date = '<br>今日(' + year + '年' + month + '月' + date + '日)の献立です<br>';
+            var display_date = '今日(' + year + '年' + month + '月' + date + '日)の献立です<br>';
             let file_date = "DB_Ryosyoku - " + month + ".csv";
             const data = await fetch(file_date);
             const resCSV = await data.text();
@@ -43,7 +43,7 @@
                     <a href="index.html"><img class="logo" src="images/donburi_ushi.png" alt="Home"></a>新居浜高専 寮食Bot<img</a>
                 </h1>
             </header>
-        </div>
+        </div><br>
         <p id="display_date"></p>
         <p id="display_data"></p>
     </body>
