@@ -17,14 +17,13 @@
             var year = today.getFullYear();
             var month = today.getMonth()+1;
             var date = today.getDate();
-            var display_date = '<br>今日(' + year + '年' + month + '月' + date + '日)の献立です。<br>';
+            var display_date = '今日(' + year + '年' + month + '月' + date + '日)の献立です。<br>';
             let file_date = "DB_Ryosyoku - " + month + ".csv";
             const data = await fetch(file_date);
             const resCSV = await data.text();
             const dataCSV = resCSV.trim().split(/\r\n|\n/).map(line => line.split(','));
             const filteredData = dataCSV.filter(row => row[1]==date);
-            const htmlData = filteredData.map(data => `${data[0]}${data[1]}${data[2]}${data[3]}${data[4]}${data[5]}${data[6]}${data[7]}${data[8]}${data[9]}${data[10]}${data[11]}`).join('');
-            const display_data = filteredData.map(data => `[朝食]<br>・${data[2]}<br>・${data[3]}<br>・${data[4]}<br><br>[昼食]<br>・${data[5]}<br>・${data[6]}<br><br>[夕食]<br>・${data[7]}<br>・${data[8]}<br>・${data[9]}<br><br>${data[11]}`).join('');
+            const display_data = filteredData.map(data => `[朝食]<br>\n・${data[2]}<br>\n・${data[3]}<br>\n・${data[4]}<br><br>\n\n[昼食]<br>・${data[5]}<br>・${data[6]}<br><br>[夕食]<br>・${data[7]}<br>・${data[8]}<br>・${data[9]}<br><br>${data[11]}`).join('');
             document.getElementById('display_data').insertAdjacentHTML('beforeend',display_data);
             document.getElementById('display_date').insertAdjacentHTML('beforeend',display_date);
             }
