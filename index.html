@@ -3,59 +3,45 @@
     <head>
         <meta charset="UTF-8">
         <title>新居浜高専 寮食Bot</title>
-        <style>
-            table th, table td{
-                border: solid 1px black;
-            }
-        </style>
-        <script>
-            async function loadCSV() {
-            const today = new Date();
-            const month = today.getMonth()+1;
-            const date = today.getDate();
-            let file_date = "DB_Ryosyoku - " + month + ".csv";
-            const data = await fetch(file_date);
-            const resCSV = await data.text();
-            const dataCSV = resCSV.trim().split(/\r\n|\n/).map(line => line.split(','));
-            const filteredData = dataCSV.filter(row => row[1]==date);
-            const ToData = filteredData.map(data => `${data[0]}${data[1]}${data[2]}${data[3]}${data[4]}${data[5]}${data[6]}${data[7]}${data[8]}${data[9]}${data[10]}${data[11]}`).join('');
-            const htmlData = dataCSV.map(data => `<tr>
-                                                    <!--<th>${data[0]}</th>-->
-                                                    <td>${data[1]}</td>
-                                                    <td>${data[2]}</td>
-                                                    <td>${data[3]}</td>
-                                                    <td>${data[4]}</td>
-                                                    <td>${data[5]}</td>
-                                                    <td>${data[6]}</td>
-                                                    <td>${data[7]}</td>
-                                                    <td>${data[8]}</td>
-                                                    <td>${data[9]}</td>
-                                                    <td>${data[10]}</td>
-                                                    <td>${data[11]}</td>
-                                                </tr>`).join('');
-            document.getElementById('tableCSV').insertAdjacentHTML('beforeend',htmlData);
-            document.getElementById('h1tag').insertAdjacentHTML('beforeend',ToData);
-            }
-            loadCSV();
-        </script>
+        <meta name="description" content="新居浜高専学寮食堂の献立">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--リセットCSS-->
+            <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <!--Googleフォント-->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+        <!--オリジナルCSS-->
+            <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
-        <table id="tableCSV">
-            <tr>
-             <!--<th></th>-->
-             <th>日付</th>
-             <th>朝食1</th>
-             <th>朝食2</th>
-             <th>朝食3</th>
-             <th>昼食1</th>
-             <th>昼食2</th>
-             <th>夕食1</th>
-             <th>夕食2</th>
-             <th>夕食3</th>
-             <th></th>
-             <th>備考</th>
-             </tr>
-        </table>
+        <div class="cover cover-home">
+            <header class="page-header">
+                <h1 class="align-center">
+                    <a href="index.html"><img class="logo" src="images/donburi_ushi.png" alt="Home"></a>新居浜高専 寮食Bot<img</a>
+                </h1>
+                <nav>
+                    <ul class="main-nav" font-english>
+                        <!--News history-->
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <h2 class="page-title font-english">新居浜高専学寮食堂@非公式</h2>
+        </div>
+
+        <section class="about">
+            <h3 class="heading-large font-english">About This Site</h3>
+            <p>
+                このサイトでは、新居浜高専学寮食堂の献立をお知らせします。
+                学校との関係は一切ありません。
+            </p>
+            <div class="align-center">
+                <a class="btn" href="today.html">今日の献立を見る</a>
+            </div>
+        </section>
     </body>
 </html>
