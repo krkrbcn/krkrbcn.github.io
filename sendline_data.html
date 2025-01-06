@@ -17,7 +17,7 @@
             var year = today.getFullYear();
             var month = today.getMonth()+1;
             var date = today.getDate();
-            var display_date = year + '年' + month + '月' + date + '日';
+            var display_date = '<br>今日(' + year + '年' + month + '月' + date + '日)の献立です。<br>';
             let file_date = "DB_Ryosyoku - " + month + ".csv";
             const data = await fetch(file_date);
             const resCSV = await data.text();
@@ -33,8 +33,8 @@
     </head>
 
     <body>
-        <p>[寮食Bot]</p><br><br>
-        <p>今日(<r id ="display_date"></r>)の献立です</p><br><br<>
+        <p>[寮食Bot]</p>
+        <p id="display_date"></p>
         <p id="display_data"></p>
     </body>
 </html>
