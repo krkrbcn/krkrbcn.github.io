@@ -27,7 +27,7 @@
             const resCSV = await data.text();
             const dataCSV = resCSV.trim().split(/\r\n|\n/).map(line => line.split(','));
             const filteredData = dataCSV.filter(row => row[1]==date);
-            var display_data = filteredData.map(data => `<br>[朝食]<br>・${data[2]}<br>・${data[3]}<br>・${data[4]}<br><br>[昼食]<br>・${data[5]}<br>・${data[6]}<br><br>[夕食]<br>・${data[7]}<br>・${data[8]}<br>・${data[9]}<br><br>${data[11]}`).join('');
+            var display_data = filteredData.map(data => `<br>[朝食]<br>・${data[2]}<br>・${data[3]}<br>・${data[4]}<br><br>[昼食]<br>・${data[5]}<br>・${data[6]}<br><br>[夕食]<br>・${data[7]}<br>・${data[8]}<br>・${data[9]}<br><br><br>${data[11]}`).join('');
             document.getElementById('display_data').insertAdjacentHTML('beforeend',display_data);
             document.getElementById('display_date').insertAdjacentHTML('beforeend',display_date);
             }

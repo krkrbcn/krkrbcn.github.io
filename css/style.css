@@ -61,6 +61,7 @@ img{
 }
 .btn:hover{
     background-color: rgb(255, 155, 55);
+    translate: 5px -10px;
 }
 
 /*ヘッダー*/
@@ -86,6 +87,35 @@ img{
     color:rgb(221, 133, 0);
 }
 
+/*フッター*/
+.page-footer{
+    background-size:cover;
+    text-align: center;
+    font-size: 1rem;
+}
+.h3tag{
+    font-size:1.2rem;
+}
+.info{
+    width:100%;
+    max-width:  544px;
+    margin:auto;
+    padding: 0 1.5rem;
+    border-spacing: 0;
+}
+.info th,
+.info td{
+    border-bottom:1px solid #c9c2bc;
+}
+.info th{
+    text-align:left;
+    font-weight: normal;
+    padding: 1rem;
+}
+.info td{
+    padding:1rem;
+}
+
 /*本文*/
 .about{
     max-width: 736px;
@@ -94,4 +124,14 @@ img{
 }
 .about p{
     margin-bottom: 3rem;
+}
+.copyright{
+    background-color: rgb(202, 143, 84);
+    text-align: center;
+    padding:2rem 0;
+    margin-top: 5rem;
+    color:#fff;
+}
+.iframe{
+    width:100%;
 }
